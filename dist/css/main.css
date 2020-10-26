@@ -1,14 +1,13 @@
 /* 
 ==============================================
-CONTENT:	Project Name Here
-AUTHOR:		Your Name Here
+CONTENT:	Conspiracy Quiz
+AUTHOR:		Eric Canosa
 ==============================================
 
 TABLE OF CONTENTS:
 
 0. Reset
-1. Main Layout
-2. Content
+1. STYLES
 
 ==============================================
 */
@@ -148,8 +147,131 @@ table {
 	border-spacing: 0;
 }
 
-/* 1. Main Layout ================================= */
+/* 1. STYLES ================================= */
 
 
+body{
+	font-family: Georgia, serif;
+	background: #4955ff;
+	color: white;
+}
 
-/* 2. Content ================================= */
+header{
+	display: flex;
+}
+
+h1{
+	margin: 2% auto;
+	font-size: 2rem;
+}
+
+.content-well{
+	color: black;
+	background: white;
+	margin: 0% 2% 2%;
+}
+
+.intro{
+	display: flex;
+	flex-direction: column;
+}
+
+.intro h2{
+	margin: 1% 2%;
+	font-size: 1.5rem;
+	background: white;
+	align-self: flex-start;
+}
+
+.intro p{
+	margin: 0% 2% 1%;
+	font-size: 1.25rem;
+	background: white;
+	align-self: flex-start;
+}
+
+.begin{
+	display: flex;
+}
+
+.begin button{
+	background-color: red;
+	font-size: 1.25rem;
+	color: white;
+	padding: 1%;
+	width: 96%;
+	cursor: pointer;
+	margin: 0% 2%;
+	outline: none;
+}
+
+nav{
+	margin-bottom: 2%;
+}
+
+nav ul{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0% 2%;
+}
+
+nav li{
+	background: white;
+	border: 1px black solid;
+	color: black;
+	flex: 1;
+	text-align: center;
+	padding: 0.75% 0%;
+	font-family: Verdana,sans-serif; 
+	cursor: pointer;
+}
+
+.active{
+	background: red;
+	color:white;
+}
+
+.question{
+	padding: 2% 1% 1%;
+	font-size: 1.375rem;
+	margin-bottom: 0%;
+	font-weight: bold;
+}
+
+.options{
+	padding: 1%;
+	font-size: 1.375rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.options .row{
+	margin-bottom: 1%;
+	display: flex;
+	align-items: center;
+	border: 1px black solid;
+	padding: 1% 0%;
+}
+
+.options section{
+	margin: 1%;
+}
+
+.selected{
+	border: 1px red solid;
+}
+
+.submit button{
+	background-color: red;
+	font-size: 1.25rem;
+	color: white;
+	padding: 1%;
+	width: 96%;
+	cursor: pointer;
+	margin: 0% 2%;
+	outline: none;
+}
+
+footer{
+	margin-bottom: 4%;
+}
