@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>  </title>
+	<title> Conspiracy Quiz </title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,9 +12,58 @@
 
 </head>
 
-<body>
+<body class="index">
+	<header>
+		<h1>Conspiracy Quiz</h1>
+	</header>
 
-	<script src="dist/js/main.js"></script>
+	<section class="intro">
+		<div>
+			<h2>Which secret society has abducted you and replaced your memories?</h2>
+			<p> Answer these simple questions to find out!</p>
+		</div>
+	</section>
+
+	<button class="begin">Begin Quiz</button>
+
+	<nav>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</nav>
+
+	<section class="question">
+		<div class="number">1</div>
+		<div class="text">When you think back on your childhood...</div>
+	</section>
+
+	<!--  -->
+
+	<section class="options">
+		<input type="radio" id="option-1" name="selection" value="paragraph-text">
+			<label for="option-1">You remember being closely watched by your parents. They always had a plan for what should happen when and would give you clear signals when it was time to do something.</label>
+		<input type="radio" id="option-2" name="selection" value="paragraph-text">
+			<label for="option-3">You were rebellious and secretive. You made up your own language to communicate with your friends and you still remember that language very clearly.</label>
+		<input type="radio" id="option-3" name="selection" value="paragraph-text">
+			<label for="option-3">You imagined living long, long ago. More at home as a knight or ancient conqueror than a child of the present day.</label>
+		<input type="radio" id="option-4" name="selection" value="paragraph-text">
+			<label for="option-4">You had a talent for making new friends and bringing people together. Your peers were comfortable coming to you with their problems and you helped solve them more often than not.</label>
+	</section>
+
+	<button class="submit">Submit Answer</button>
+
+	<section class="results">
+		<p class="calculation">
+			You were brainwashed by: <span></span>
+		</p>
+		<p class="explanation">lorem ipsum</p>
+		<p>Learn more about secret societies at <a href="https://www.history.com/news/secret-societies-freemasons-knights-templar" target="_blank">History.com</a></p>
+		<button>Clear Answers & Retake Quiz</button>
+	</section>
 
 </body>
 
