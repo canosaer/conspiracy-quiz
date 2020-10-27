@@ -15,13 +15,18 @@ let questionDIV = document.querySelector(`.text`)
 
 var question = 1;
 var responses = [];
-var activeLI = -1
 
 mainContentDIV.style.display = `none`
 resultsSECTION.style.display = `none`
 
 let displayQuestion = function(){
     navLIS[question-1].classList.add(`active`)
+    let arrayCorrection  = responses.length - (question-1)
+    if(arrayCorrection){
+        for(let i=0;i<arrayCorrection;i++){
+            responses.pop()
+        }
+    }
 
     if (question === 1){
         questionDIV.textContent = `1. When you think back on your childhood...`
@@ -38,6 +43,8 @@ let displayQuestion = function(){
         optionLABELS[2].textContent = `Lorem ipsum`
         optionLABELS[3].textContent = `Lorem ipsum`
     }
+
+    console.log(responses)
 }
 
 let advanceQuestion = function(){
@@ -91,27 +98,12 @@ submitBUTTON.addEventListener(`click`, function(){
 
 for(let i=0;i<3;i++){
     navLIS[i].addEventListener(`click`, function(event){
-        
         for(let j=0;j<4;j++){
-            if(navLIS.className === `active`){ activeLI = j}
+            if(navLIS[j].className === `active` && i<j){ 
+                navLIS[j].classList.remove(`active`)
+                question = parseInt(event.target.textContent)
+                displayQuestion()
+            }
         }
-        console.log(i)
-        console.log(activeLI)
-        if((parseInt(event.target.textContent)-1) < i){
-            console.log(`yo`)
-        }
-        
-        
-        // for(let j=0;j<4;j++){
-        //     if ((parseInt(event.target.textContent)+1) < j){
-        //         console.log(navLIS[j])
-        //         navLIS[j].classList.remove(`active`)
-        //         event.target.classList.add(`active`)
-        //         question = event.target.textContent
-        //         displayQuestion()
-        //         return;
-        //     }
-            
-        // }
     })
 }
