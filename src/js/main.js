@@ -76,6 +76,10 @@ let displayQuestion = function(){
 let advanceQuestion = function(){
     navLIS[question-1].classList.remove(`active`)
     question++
+    for(let i=0;i<4;i++){
+        rowSECTIONS[i].style.border = `1px black solid`
+        if(optionINPUTS[i].checked) {optionINPUTS[i].checked = false}
+    }
     displayQuestion()
 }
 

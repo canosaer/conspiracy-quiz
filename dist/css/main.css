@@ -194,7 +194,7 @@ h1{
 	display: flex;
 }
 
-.begin button{
+button{
 	background-color: red;
 	font-size: 1.25rem;
 	color: white;
@@ -231,18 +231,22 @@ nav li{
 	color:white;
 }
 
-.question{
+.question, .calculation{
 	padding: 2% 1% 1%;
 	font-size: 1.375rem;
 	margin-bottom: 0%;
 	font-weight: bold;
 }
 
-.options{
+.options, .explanation, .explanation+p{
 	padding: 1%;
 	font-size: 1.375rem;
 	display: flex;
 	flex-direction: column;
+}
+
+.explanation+p{
+	display: block;
 }
 
 .options .row{
