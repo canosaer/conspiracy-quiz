@@ -245,6 +245,10 @@ nav li{
 	flex-direction: column;
 }
 
+.explanation{
+	line-height: 1.4;
+}
+
 .explanation+p{
 	display: block;
 }

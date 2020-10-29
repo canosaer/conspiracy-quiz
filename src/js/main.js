@@ -12,6 +12,9 @@ let submitBUTTON = document.querySelector(`.submit button`)
 let navLIS = document.querySelectorAll(`nav li`)
 let optionLABELS = document.querySelectorAll(`.options label`)
 let questionDIV = document.querySelector(`.text`)
+let resetBUTTON = document.querySelector(`.results button`)
+let calculationSPAN = document.querySelector(`.calculation span`)
+let explanationP = document.querySelector(`.explanation`)
 
 var question = 1;
 var responses = [];
@@ -74,13 +77,61 @@ let displayQuestion = function(){
 }
 
 let advanceQuestion = function(){
-    navLIS[question-1].classList.remove(`active`)
-    question++
-    for(let i=0;i<4;i++){
-        rowSECTIONS[i].style.border = `1px black solid`
-        if(optionINPUTS[i].checked) {optionINPUTS[i].checked = false}
+    if(question === 5){
+        mainContentDIV.style.display = `none`
+        resultsSECTION.style.display = `block`
+        let f = 0
+        let i = 0
+        let s = 0
+        let b = 0
+        for(let j=0;j<5;j++){
+            if(responses[j] === `f`) { f++ }
+            else if(responses[j] === `i`) { i++ }
+            else if(responses[j] === `s`) { s++ }
+            else if(responses[j] === `b`) { b++ }
+        }
+        console.log(f)
+        console.log(i)
+        console.log(s)
+        console.log(b)
+        if(f>=3) { displayFwin() }
+        else if(i>=3) { displayIwin() }
+        else if(s>=3) { displaySwin() }
+        else if(b>=3) { displayBwin() }
+        else if(f===2) { displayFwin() }
+        else if(i===2) { displayIwin() }
+        else if(s===2) { displaySwin() }
+        else if(b===2) { displayBwin() }
     }
-    displayQuestion()
+    else{
+        navLIS[question-1].classList.remove(`active`)
+        question++
+        for(let i=0;i<4;i++){
+            rowSECTIONS[i].style.border = `1px black solid`
+            if(optionINPUTS[i].checked) {optionINPUTS[i].checked = false}
+        }
+        displayQuestion()
+    }
+}
+
+let displayFwin = function(){
+    calculationSPAN.textContent = `the Freemasons!`
+    explanationP.textContent = `You had no purpose before the Freemasons found you and turned you into their instrument. Now you fit within the great pattern of the divine architect. Where once there was chaos, now there is perfect order. The Freemasons have a plan for you, as they do for everything, and one day soon that plan will be revealed.`
+}
+
+let displayIwin = function(){
+    calculationSPAN.textContent = `the Illuminati!`
+    explanationP.textContent = `It matters little who you were before the Illuminati. Memories and identity are a liability. You wait in secret, in the shadows, to do the bidding of your faceless masters. For it is only in ignorance that the public can be trusted not to get in the way of their own progress.`
+}
+
+let displaySwin = function(){
+    calculationSPAN.textContent = `the Skull and Bones!`
+    explanationP.textContent = `You have become a tool of conquest. The Skull and Bones have buried a trigger deep within your psyche, and once that trigger is activated the Skull and Bones will have eliminated another enemy.`
+}
+
+let displayBwin = function(){
+    calculationSPAN.textContent = `the Bilderberg Group!`
+    explanationP.textContent = `The Bilderberg Group solves problems. You have become part of the solution to a problem you never even knew existed. As a pawn of the Bilderberg, it isn't important that you know the role you play - only that you follow your conditioning to influence others according to their subtle designs.`
 }
 
 displayQuestion()
@@ -101,30 +152,22 @@ for(let i=0;i<4;i++){
 }
 
 submitBUTTON.addEventListener(`click`, function(){
-    if(question === 5){
-        mainContentDIV.style.display = `none`
-        resultsSECTION.style.display = `block`
+    if(optionINPUTS[0].checked === true){
+        responses.push(`f`)
+        advanceQuestion()
     }
-    else{
-        if(optionINPUTS[0].checked === true){
-            responses.push(`f`)
-            advanceQuestion()
-        }
-        else if(optionINPUTS[1].checked === true){
-            responses.push(`i`)
-            advanceQuestion()
-        }
-        else if(optionINPUTS[2].checked === true){
-            responses.push(`s`)
-            advanceQuestion()
-        }
-        else if(optionINPUTS[3].checked === true){ 
-            responses.push(`b`)
-            advanceQuestion()
-        }
+    else if(optionINPUTS[1].checked === true){
+        responses.push(`i`)
+        advanceQuestion()
     }
-    
-
+    else if(optionINPUTS[2].checked === true){
+        responses.push(`s`)
+        advanceQuestion()
+    }
+    else if(optionINPUTS[3].checked === true){ 
+        responses.push(`b`)
+        advanceQuestion()
+    }
 })
 
 for(let i=0;i<5;i++){
@@ -138,3 +181,17 @@ for(let i=0;i<5;i++){
         }
     })
 }
+
+
+resetBUTTON.addEventListener(`click`, function(){
+    resultsSECTION.style.display = `none`
+    mainContentDIV.style.display = `block`
+    for(let i=0;i<4;i++){
+        rowSECTIONS[i].style.border = `1px black solid`
+        if(optionINPUTS[i].checked) {optionINPUTS[i].checked = false}
+    }
+    navLIS[4].classList.remove(`active`)
+    responses = []
+    question = 1
+    displayQuestion()
+})
